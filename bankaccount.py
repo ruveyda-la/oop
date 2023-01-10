@@ -34,5 +34,6 @@ account2 = BankAccount(0.5,200)
 account1.deposit(50).deposit(25).deposit(25).withdraw(200).yield_interest().display_account_info()
 account2.deposit(100).deposit(50).withdraw(100).withdraw(150).withdraw(100).withdraw(1000).yield_interest().display_account_info()
 
-        
+# @classmethod
+# def BankAccountInfo ()          
 
