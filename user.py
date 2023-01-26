@@ -8,7 +8,7 @@ class User:
         self.gold_card_points = 0
 
     def display_info(self):
-        print (self.first_name,self.last_name,self.email,self.age,sep='\n')
+        print (self.first_name,self.last_name,self.email,self.age,self.gold_card_points,sep='\n')
         return self
 
     def enroll(self):
@@ -24,9 +24,9 @@ class User:
     def spend_points(self,amount):
         if self.gold_card_points >= amount:
             self.gold_card_points -= amount
-            print (self.gold_card_points)
+        #     print (self.gold_card_points)
         else:
-            print ('User doesnot have enough points.')
+            print ('User does not have enough points.')
         return self
 
 
@@ -34,7 +34,7 @@ class User:
 
 id1 = User('Jane','Doe','Janedoe@email.com','32')
 id1.display_info()
-id1.enroll().spend_points(100)
+id1.enroll().spend_points(100).display_info()
 
 # id2 = User('Jack','Brown','Jackbrown@email.com','45')
 # id3 = User('Mary','Thomson','Marythomson@email.com','61') 
