@@ -35,37 +35,38 @@ class BankAccount:
 
 
 class User:
-    def __init__(self,name,email,account):
+    def __init__(self,name,email,ch_int_rate,sa_int_rate):
         self.name = name
         self.email = email
-        self.account = account 
+        self.account = {"checking":BankAccount(ch_int_rate,0),
+                        "saving":BankAccount(sa_int_rate,0)}
         
 
-    def make_deposit (self,amount,i):
-        self.account[i].deposit(amount)
+    def make_deposit (self,amount,account_key):
+        self.account[account_key].deposit(amount)
         return self
 
-    def make_withdrawal (self,amount,i):
-        self.account[i].withdraw(amount)
+    def make_withdrawal (self,amount,account_key):
+        self.account[account_key].withdraw(amount)
         return self    
 
-    def display_user_balance(self,i):
-        print(f"Current balance:{self.account[i].balance}")
+    def display_user_balance(self,account_key):
+        print(f"Current balance:{self.account[account_key].balance}")
         return self
     
-    # def transfer_money(self,amount,other_user,i):
-    #     self.account[i].make_withdrawal(amount)
-    #     self.other_user.account[j].make_deposit(amount)
-    #     print(self.account[i].balance)
-    #     print(self.other_user.account[0].balance)
-    #     return self
+    # def transfer_money(self,amount,other_user,account_key_self,account_key_other_user):
+    #     if amount <= self[account_key_self].balance:
+    #         self.make_withdrawal(amount,account_key_self)
+    #         other_user.make_deposit(amount,account_key_other_user)
+    #     else:
+    #         print("Insufficient funds")   
+    #     return self     
 
 
 
+user1 = User('Jane Doe','Janedoe@email.com',0.02,0.05)
+user2 = User('Jack Brown','Jackbrown@email.com',0.5,0.03)
+user1.make_deposit(100,"checking").make_withdrawal(50,"checking").display_user_balance("checking")
 
-user1 = User('Jane Doe','Janedoe@email.com',[BankAccount(int_rate=0.02, balance=0),BankAccount(int_rate=0.05,balance=1000)])
-# user2 = User('Jack Brown','Jackbrown@email.com',[BankAccount(int_rate=0.5, balance=500)])
-user1.make_deposit(100,1).make_withdrawal(50,1).display_user_balance(1)
-
-# transfer_money(500,user2,1,0)
+# user1.transfer_money(30,user2,"checking","checking")
 
