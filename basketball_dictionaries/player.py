@@ -26,8 +26,8 @@ class Player:
 # print(dir(Player))
 # Player.get_team(players)
 
-player1=Player(players[0])
-Player.justprint(player1)
+# player1=Player(players[0])
+# Player.justprint(player1)
 # player2=Player(players[1])
 # player3=Player(players[2])
 # player4=Player(players[3])
