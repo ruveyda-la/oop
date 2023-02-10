@@ -54,19 +54,19 @@ class User:
         print(f"Current balance:{self.account[account_key].balance}")
         return self
     
-    # def transfer_money(self,amount,other_user,account_key_self,account_key_other_user):
-    #     if amount <= self[account_key_self].balance:
-    #         self.make_withdrawal(amount,account_key_self)
-    #         other_user.make_deposit(amount,account_key_other_user)
-    #     else:
-    #         print("Insufficient funds")   
-    #     return self     
+    def transfer_money(self,amount,other_user,account_key_self,account_key_other_user):
+        if amount <= self.account[account_key_self].balance:
+            self.make_withdrawal(amount,account_key_self)
+            other_user.make_deposit(amount,account_key_other_user)
+        else:
+            print("Insufficient funds")   
+        return self     
 
 
 
 user1 = User('Jane Doe','Janedoe@email.com',0.02,0.05)
 user2 = User('Jack Brown','Jackbrown@email.com',0.5,0.03)
-user1.make_deposit(100,"checking").make_withdrawal(50,"checking").display_user_balance("checking")
+# user1.make_deposit(100,"checking").make_withdrawal(50,"checking").display_user_balance("checking")
 
-# user1.transfer_money(30,user2,"checking","checking")
-
+user1.make_deposit(100,"checking")
+user1.transfer_money(30,user2,"checking","checking")
