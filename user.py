@@ -24,7 +24,6 @@ class User:
     def spend_points(self,amount):
         if self.gold_card_points >= amount:
             self.gold_card_points -= amount
-        #     print (self.gold_card_points)
         else:
             print ('User does not have enough points.')
         return self
